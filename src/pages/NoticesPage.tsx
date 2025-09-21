@@ -53,17 +53,9 @@ export default function NoticesPage() {
         <section className="bg-white border rounded-xl shadow-sm p-5">
           {selected ? (
             <article>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="text-xl font-semibold text-gray-900">{selected.title}</h2>
-                  <div className="mt-1 text-sm text-gray-500">{selected.date} {selected.tag ? `· ${selected.tag}` : ''}</div>
-                </div>
-                <a
-                  className="inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm bg-white hover:bg-gray-50"
-                  href={`#${selected.id}`}
-                >
-                  Share
-                </a>
+              <div>
+                <h2 className="text-xl font-semibold text-gray-900">{selected.title}</h2>
+                <div className="mt-1 text-sm text-gray-500">{selected.date} {selected.tag ? `· ${selected.tag}` : ''}</div>
               </div>
               <p className="mt-4 leading-relaxed text-gray-800 whitespace-pre-wrap">{selected.details}</p>
             </article>

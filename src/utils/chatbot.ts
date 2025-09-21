@@ -1,6 +1,20 @@
+// Message type for conversation history
+export interface Message {
+  id: number;
+  role: 'user' | 'bot';
+  text: string;
+}
+
+// Import FAQ functions
+import { getFAQAnswer, isFAQQuestion } from './faq';
+
 // Conversational AI logic for the campus chatbot
-export function generateBotResponse(userMessage: string, language: string, notices: any[]): string {
+export function generateBotResponse(userMessage: string, language: string, notices: any[], conversationHistory: Message[] = []): string {
   const message = userMessage.toLowerCase().trim();
+  
+  // Get recent conversation context (last 5 messages)
+  const recentHistory = conversationHistory.slice(-5);
+  const context = recentHistory.map(msg => msg.text).join(' ').toLowerCase();
   
   // Response templates for different languages
   const responses = {
@@ -338,6 +352,21 @@ export function generateBotResponse(userMessage: string, language: string, notic
   // Get responses for current language, fallback to English
   const langResponses = responses[language] || responses.en;
 
+  // Check for FAQ questions first
+  const faqCategory = isFAQQuestion(message);
+  if (faqCategory) {
+    const faqAnswer = getFAQAnswer(faqCategory, language, message.includes('detail') || message.includes('more') || message.includes('explain'));
+    if (faqAnswer) {
+      return faqAnswer;
+    }
+  }
+
+  // Context-aware response generation
+  const contextualResponse = generateContextualResponse(message, context, langResponses, language);
+  if (contextualResponse) {
+    return contextualResponse;
+  }
+
   // Determine response category based on user input
   if (isGreeting(message)) {
     return getRandomResponse(langResponses.greeting);
@@ -418,4 +447,55 @@ function isAskingForHelp(message: string): boolean {
 function isThanking(message: string): boolean {
   const keywords = ['thank', 'thanks', 'dhanyawad', 'shukriya', 'धन्यवाद', 'शुक्रिया'];
   return keywords.some(keyword => message.includes(keyword));
+}
+
+// Generate contextual responses based on conversation history
+function generateContextualResponse(message: string, context: string, langResponses: any, language: string): string | null {
+  // Follow-up questions about previously discussed topics
+  if (context.includes('exam') && (message.includes('when') || message.includes('time') || message.includes('date'))) {
+    return language === 'en' 
+      ? "The mid-semester exams start from October 15th. Make sure to check the portal for your specific timetable!"
+      : "मध्य सेमेस्टर परीक्षा 15 अक्टूबर से शुरू होगी। अपना टाइम टेबल पोर्टल पर जरूर देखें!";
+  }
+
+  if (context.includes('library') && (message.includes('open') || message.includes('close') || message.includes('time'))) {
+    return language === 'en'
+      ? "The library is open from 8 AM to 10 PM on weekdays. Perfect for your study sessions!"
+      : "पुस्तकालय सप्ताह के दिनों में सुबह 8 बजे से रात 10 बजे तक खुला रहता है।";
+  }
+
+  if (context.includes('sport') && (message.includes('register') || message.includes('join') || message.includes('sign'))) {
+    return language === 'en'
+      ? "You can register for sports tryouts by Friday. Don't miss the deadline!"
+      : "आप शुक्रवार तक खेल ट्रायआउट के लिए रजिस्टर कर सकते हैं। डेडलाइन न चूकें!";
+  }
+
+  if (context.includes('hostel') && (message.includes('water') || message.includes('maintenance') || message.includes('block'))) {
+    return language === 'en'
+      ? "There's water maintenance in Hostel Block B on Saturday from 2-5 PM. Plan accordingly!"
+      : "हॉस्टल ब्लॉक B में शनिवार को दोपहर 2-5 बजे पानी की मरम्मत है।";
+  }
+
+  // Clarification requests
+  if (message.includes('what') && message.includes('mean') || message.includes('explain')) {
+    return language === 'en'
+      ? "I'd be happy to explain! Could you be more specific about what you'd like me to clarify?"
+      : "मैं समझाने में खुशी होगी! क्या आप मुझे बता सकते हैं कि आप क्या समझना चाहते हैं?";
+  }
+
+  // Continuation of previous topic
+  if (context.includes('notice') && (message.includes('more') || message.includes('other') || message.includes('else'))) {
+    return language === 'en'
+      ? "I have more campus updates available. Check the notices panel for all the latest information!"
+      : "मेरे पास और भी कैंपस अपडेट हैं। सभी नवीनतम जानकारी के लिए सूचना पैनल देखें!";
+  }
+
+  // Questions about previous responses
+  if (message.includes('really') || message.includes('sure') || message.includes('confirm')) {
+    return language === 'en'
+      ? "Yes, I'm confident about that information. Is there anything specific you'd like me to double-check?"
+      : "हाँ, मुझे उस जानकारी पर भरोसा है। क्या आप चाहते हैं कि मैं कुछ विशेष जानकारी को दोबारा जांचूं?";
+  }
+
+  return null; // No contextual response found
 }

@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NOTICES, Notice } from './utils/notices';
-import { generateBotResponse } from './utils/chatbot';
+import { generateBotResponse, Message } from './utils/chatbot';
 
 export default function App() {
 	const [language, setLanguage] = useState('en');
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [messageInput, setMessageInput] = useState('');
-	const [messages, setMessages] = useState([
+	const [messages, setMessages] = useState<Message[]>([
 		{ id: 1, role: 'bot', text: 'Hello! How can I help you today?' },
 		{ id: 2, role: 'user', text: 'Show me the latest campus notices.' },
 		{ id: 3, role: 'bot', text: 'Sure! Tap the sidebar to view notices.' }
@@ -114,19 +114,19 @@ export default function App() {
 		const text = messageInput.trim();
 		if (!text) return;
 
-		const newMessage = { id: Date.now(), role: 'user', text };
+		const newMessage: Message = { id: Date.now(), role: 'user', text };
 		setMessages(prev => [...prev, newMessage]);
 
 		setMessageInput('');
 
-		// Generate intelligent bot response
+		// Generate intelligent bot response with conversation history
 		setTimeout(() => {
-			const botResponse = generateBotResponse(text, language, notices);
+			const botResponse = generateBotResponse(text, language, notices, messages);
 			setMessages(prev => [
 				...prev,
 				{
 					id: Date.now() + 1,
-					role: 'bot',
+					role: 'bot' as const,
 					text: botResponse
 				}
 			]);
