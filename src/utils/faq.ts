@@ -30,26 +30,26 @@ export const FAQ_DATA: FAQ[] = [
   {
     "category": "Admission",
     "questions": {
-      "en": "What are the admission requirements?",
-      "hi": "प्रवेश के लिए क्या आवश्यकताएँ हैं?",
-      "dh": "दाखले री शर्ता काय है?",
-      "mw": "दाखला री शर्ता काई है?",
-      "me": "दाखले री कंडीशन काय है?"
+      "en": "How do I apply for admission?",
+      "hi": "प्रवेश के लिए कैसे आवेदन करूँ?",
+      "dh": "दाखिला खातर केसरें अरजी देवौ?",
+      "mw": "दाखलो खातर केसरें अरजी करूं?",
+      "me": "दाखलो देवा खातर केसरें अरजी करूं?"
     },
     "answers": {
       "short": {
-        "en": "10+2 with required subjects.",
-        "hi": "प्रवेश के लिए 10+2 आवश्यक है।",
-        "dh": "10+2 जरूरी है।",
-        "mw": "10+2 जरूरी है।",
-        "me": "10+2 जरूरी है।"
+        "en": "Apply via the admissions portal or the specified entrance exam.",
+        "hi": "विश्वविद्यालय के प्रवेश पोर्टल या प्रवेश परीक्षा के माध्यम से आवेदन करें।",
+        "dh": "यूनिवर्सिटी री वेबसाइट/पोर्टल पै अरजी देवौ या प्रवेश परीक्षा देवौ।",
+        "mw": "यूनिवर्सिटी पोर्टल या प्रवेश परीक्षा सूं आवेदन करजो।",
+        "me": "यूनिवर्सिटी पोर्टल पै अरजी करो या परीक्षा आपो।"
       },
       "detailed": {
-        "en": "Admission requires passing 10+2 with the specified subjects and minimum marks set by the university.",
-        "hi": "प्रवेश हेतु 10+2 और विश्वविद्यालय द्वारा तय अंक आवश्यक हैं।",
-        "dh": "10+2 अणि तय अंक जरूरी है।",
-        "mw": "10+2 अणि अंक जरूरी है।",
-        "me": "10+2 अणि तय अंक जरूरी है।"
+        "en": "Submit your application through the admissions portal or register for the specified entrance exam as applicable.",
+        "hi": "अपना आवेदन प्रवेश पोर्टल पर जमा करें या निर्धारित प्रवेश परीक्षा के लिए पंजीकरण करें।",
+        "dh": "प्रवेश पोर्टल पै अरजी देवौ या ठरायल परीक्षा खातर रजिस्ट्रेशन करौ।",
+        "mw": "प्रवेश पोर्टल पै आवेदन करजो या ठहरायल परीक्षा खातर रजिस्ट्रेशन करजो।",
+        "me": "प्रवेश पोर्टल पर अरजी करो वा बतावेल प्रवेश परीक्षा मां भाग लो।"
       }
     }
   },
@@ -64,18 +64,18 @@ export const FAQ_DATA: FAQ[] = [
     },
     "answers": {
       "short": {
-        "en": "Around 50,000 INR.",
-        "hi": "लगभग 50,000 रुपये।",
-        "dh": "५०,०००।",
-        "mw": "५०,०००।",
-        "me": "५०,०००।"
+        "en": "Pay via the student portal or designated bank.",
+        "hi": "छात्र पोर्टल या निर्दिष्ट बैंक से भुगतान करें।",
+        "dh": "पोर्टल या ठरायल बैंक सूं फीस भरो।",
+        "mw": "पोर्टल या बैंक तें शुल्क जमा करजो।",
+        "me": "पोर्टल या बतावेल बैंक मां फीस भरी दो।"
       },
       "detailed": {
-        "en": "The annual fee is approx. 50,000 INR, may vary by course and semester.",
-        "hi": "वार्षिक शुल्क लगभग 50,000, कोर्स के अनुसार बदल सकता है।",
-        "dh": "५०,०००, कोर्स पाछो बदलै।",
-        "mw": "५०,०००, कोर्स पाछो बदलै।",
-        "me": "५०,०००, कोर्स पाछो बदलै।"
+        "en": "Use the student portal for online payment or deposit at the designated bank as instructed.",
+        "hi": "ऑनलाइन भुगतान छात्र पोर्टल से करें या निर्दिष्ट बैंक में जमा करें।",
+        "dh": "ऑनलाइन पोर्टल सूं भरो या ठरायल बैंक में जमा करौ।",
+        "mw": "ऑनलाइन पोर्टल सूं भरजो या बतावेल बैंक में जमा करजो।",
+        "me": "पोर्टल सूं ऑनलाइन भरवां या बतावेल बैंक मां जमा करवां।"
       }
     }
   },
@@ -116,18 +116,18 @@ export const FAQ_DATA: FAQ[] = [
     },
     "answers": {
       "short": {
-        "en": "Twice a year.",
-        "hi": "साल में दो बार।",
-        "dh": "दो बार।",
-        "mw": "दो बार।",
-        "me": "दो बार।"
+        "en": "December and May.",
+        "hi": "दिसंबर और मई।",
+        "dh": "दिसम्बर अणि मई।",
+        "mw": "दिसम्बर अर मई।",
+        "me": "दिसम्बर अने मई।"
       },
       "detailed": {
-        "en": "University exams are conducted semester-wise, usually twice a year in winter and summer sessions.",
-        "hi": "विश्वविद्यालय की परीक्षाएँ सेमेस्टर अनुसार साल में दो बार होती हैं।",
-        "dh": "इम्तिहान सेमेस्टर पाछो बे वार होवे।",
-        "mw": "इम्तिहान सेमेस्टर पाछो बे वार होवे।",
-        "me": "इम्तिहान सेमेस्टर पाछो बे वार होवे।"
+        "en": "Semester exams are typically held in December and May.",
+        "hi": "सेमेस्टर परीक्षाएँ सामान्यतः दिसंबर और मई में होती हैं।",
+        "dh": "सेमेस्टर री परीक्षा अमूमन दिसम्बर अणि मई में होवे।",
+        "mw": "सेमेस्टर री परीक्षा साधारणत: दिसम्बर अर मई में होवे।",
+        "me": "सेमेस्टर नी परीक्षा सामान्य रिते दिसम्बर अने मई मां थाय छे।"
       }
     }
   },
@@ -154,6 +154,59 @@ export const FAQ_DATA: FAQ[] = [
         "dh": "टाइमटेबल नोटिस बोर्ड अणि वेबसाइट पर है।",
         "mw": "टाइमटेबल नोटिस बोर्ड अणि वेबसाइट पर है।",
         "me": "टाइमटेबल नोटिस बोर्ड अणि वेबसाइट पर है।"
+      }
+    }
+  }
+  ,
+  {
+    "category": "Hostel",
+    "questions": {
+      "en": "Is hostel facility available for outstation students?",
+      "hi": "क्या बाहर से आने वाले छात्रों के लिए हॉस्टल है?",
+      "dh": "बाहरां छात्रां खातर हॉस्टल सुविधा है के?",
+      "mw": "बाहरां सूं आवेला छात्रां खातर हॉस्टल छे के?",
+      "me": "बाहरां खातर हॉस्टल नी सुविधा छे के?"
+    },
+    "answers": {
+      "short": {
+        "en": "Yes, available on a first-come-first-serve basis.",
+        "hi": "हाँ, पहले आओ पहले पाओ आधार पर उपलब्ध है।",
+        "dh": "हाँ, पहला आवे-ओनो पावे आधार पै।",
+        "mw": "हाँ, पहला आवै-ओनो पावै आधार पै छे।",
+        "me": "हाँ, पहिला आवे-पहिलो पावे।"
+      },
+      "detailed": {
+        "en": "Hostel facility is provided on a first-come-first-serve basis for eligible students.",
+        "hi": "पात्र छात्रों के लिए हॉस्टल सुविधा पहले आओ पहले पाओ आधार पर दी जाती है।",
+        "dh": "पात्र छात्रां खातर हॉस्टल पहला आवे-ओनो पावे आधार पै मिलै।",
+        "mw": "पात्र छात्रां खातर हॉस्टल पहला आवै-ओनो पावै आधार पै छे।",
+        "me": "પાત્ર વિદ્યાર્થી માટે હોસ્ટેલ પહેલી આવો પહેલી પાવો ધોરણે મળે छे।"
+      }
+    }
+  },
+  {
+    "category": "Library",
+    "questions": {
+      "en": "What are the library timings?",
+      "hi": "पुस्तकालय के समय क्या हैं?",
+      "dh": "लाइब्रेरी रो टैम कद है?",
+      "mw": "लाइब्रेरी रा समय कया छे?",
+      "me": "लाइब्रेरी केवा वेला सुधी खुले छे?"
+    },
+    "answers": {
+      "short": {
+        "en": "Open 9 AM to 8 PM on weekdays.",
+        "hi": "सप्ताह के दिनों में सुबह 9 से शाम 8 बजे।",
+        "dh": "हफ्ता के दिनां में 9 तैं 8 सांय।",
+        "mw": "वीकडेज़ मां सवेरां 9 तें सांझ 8 वगे।",
+        "me": "वर्कિંગ ડેઝે 9 વાગ્યે થી 8 વાગ્યા સુધી।"
+      },
+      "detailed": {
+        "en": "The library is open from 9 AM to 8 PM on weekdays.",
+        "hi": "पुस्तकालय सप्ताह के कार्यदिवसों में सुबह 9 से शाम 8 बजे तक खुला रहता है।",
+        "dh": "लाइब्रेरी हफ्ता के कामकाजी दिनां में 9 तैं 8 सांय खुली रहसी।",
+        "mw": "लाइब्रेरी वीकडेज़ मां 9 तें 8 वगे सुधी खुली रहसी।",
+        "me": "લાઇબ્રેરી કામકાજી દિવસો માં 9 થી 8 સુધી ખુલ્લી રહે છે।"
       }
     }
   }
@@ -201,6 +254,16 @@ export function isFAQQuestion(message: string): string | null {
   // Exams keywords
   if (messageLower.includes('exam') || messageLower.includes('test') || messageLower.includes('परीक्षा') || messageLower.includes('इम्तिहान') || messageLower.includes('टेस्ट')) {
     return 'Exams';
+  }
+  
+  // Hostel keywords
+  if (messageLower.includes('hostel') || messageLower.includes('हॉस्टल') || messageLower.includes('हॉस्टेल') || messageLower.includes('छात्रावास') || messageLower.includes('रहائش')) {
+    return 'Hostel';
+  }
+
+  // Library keywords
+  if (messageLower.includes('library') || messageLower.includes('पुस्तकालय') || messageLower.includes('लाइब्रेरी') ) {
+    return 'Library';
   }
   
   // Timetable keywords
