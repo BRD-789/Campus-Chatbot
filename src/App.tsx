@@ -212,7 +212,7 @@ export default function App() {
 				)}
 				<aside
 					className={`fixed sm:static z-30 top-0 right-0 h-full sm:h-auto w-80 max-w-[85%] bg-white border-l shadow-xl sm:shadow-none transform transition-transform duration-300
-						${isSidebarOpen ? 'translate-x-0' : 'translate-x-full sm:translate-x-0'}
+						${isSidebarOpen ? 'translate-x-0' : 'translate-x-full sm:-translate-x-full sm:w-0'}
 						flex flex-col`}
 					aria-label="Notices Sidebar"
 				>
@@ -220,7 +220,7 @@ export default function App() {
 						<h2 className="font-semibold text-gray-900">{labels.notices}</h2>
 						<button
 							onClick={() => setIsSidebarOpen(false)}
-							className="sm:hidden inline-flex items-center justify-center rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50 active:bg-gray-100"
+							className="inline-flex items-center justify-center rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50 active:bg-gray-100"
 						>
 							{labels.close}
 						</button>
