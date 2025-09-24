@@ -180,6 +180,7 @@ export default function App() {
 
 				<div className="flex items-center gap-2 sm:gap-4">
 					<div className="hidden sm:flex items-center text-sm text-gray-600">{labels.language}:</div>
+					<span aria-hidden className="hidden sm:inline">🌐</span>
 					<select
 						value={language}
 						onChange={(e) => setLanguage(e.target.value)}

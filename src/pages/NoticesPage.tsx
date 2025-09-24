@@ -55,9 +55,34 @@ export default function NoticesPage() {
             <article>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">{selected.title}</h2>
-                <div className="mt-1 text-sm text-gray-500">{selected.date} {selected.tag ? `· ${selected.tag}` : ''}</div>
+                <div className="mt-2 flex items-center flex-wrap gap-2">
+                  {selected.date && (
+                    <span className="inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-700">{selected.date}</span>
+                  )}
+                  {selected.tag && (
+                    <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700">{selected.tag}</span>
+                  )}
+                  <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-0.5 text-xs text-green-700">Official</span>
+                </div>
               </div>
               <p className="mt-4 leading-relaxed text-gray-800 whitespace-pre-wrap">{selected.details}</p>
+
+              <div className="mt-6 border-t pt-4">
+                <h3 className="text-sm font-medium text-gray-900">Related notices</h3>
+                <ul className="mt-2 grid gap-2 sm:grid-cols-2">
+                  {NOTICES.filter(n => n.id !== selected.id).slice(0,4).map(n => (
+                    <li key={n.id}>
+                      <Link to={`/notices/${n.id}`} className="block rounded-lg border p-3 hover:bg-gray-50">
+                        <div className="flex items-center justify-between">
+                          <div className="text-sm font-medium text-gray-900 line-clamp-1">{n.title}</div>
+                          {n.date && <div className="ml-2 shrink-0 text-[11px] text-gray-500">{n.date}</div>}
+                        </div>
+                        <div className="mt-1 text-xs text-gray-600 line-clamp-2">{n.details}</div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </article>
           ) : (
             <div className="h-full min-h-[240px] flex items-center justify-center text-gray-500 text-sm">
