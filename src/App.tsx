@@ -180,15 +180,19 @@ export default function App() {
 
 				<div className="flex items-center gap-2 sm:gap-4">
 					<div className="hidden sm:flex items-center text-sm text-gray-600">{labels.language}:</div>
-					<select
+					<div className="relative">
+						<span className="pointer-events-none absolute left-2 top-1.5 text-gray-500">🌐</span>
+						<select
 						value={language}
 						onChange={(e) => setLanguage(e.target.value)}
-						className="rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
-					>
+							className="pl-7 pr-8 py-1.5 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500 appearance-none"
+						>
 						{languageOptions.map(opt => (
 							<option key={opt.value} value={opt.value}>{opt.label}</option>
 						))}
-					</select>
+						</select>
+						<span className="pointer-events-none absolute right-2 top-1.5 text-gray-500">▾</span>
+					</div>
 
 					<button
 						onClick={() => setIsSidebarOpen(true)}
@@ -226,14 +230,38 @@ export default function App() {
 						</button>
 					</div>
 					<div className="flex-1 overflow-y-auto">
-						<ul className="divide-y">
+						<ul className="divide-y px-3 py-3">
 							{notices.map((n) => (
-								<li key={n.id} className="p-4 hover:bg-gray-50 cursor-pointer" onClick={() => handleNoticeClick(n)}>
-									<div className="font-medium text-gray-900">{n.title}</div>
-									<div className="mt-1 text-sm text-gray-600 line-clamp-2">{n.details}</div>
+								<li key={n.id} className="py-2">
+									<div
+										onClick={() => handleNoticeClick(n)}
+										className="group rounded-xl border bg-white p-4 hover:bg-gray-50 hover:border-gray-300 cursor-pointer transition"
+									>
+										<div className="flex items-start justify-between gap-3">
+											<div className="font-medium text-gray-900 line-clamp-1">{n.title}</div>
+											<div className="shrink-0 text-xs text-gray-500">{n.date}</div>
+										</div>
+										<div className="mt-1 text-sm text-gray-600 line-clamp-2">{n.details}</div>
+										<div className="mt-2 inline-flex items-center text-xs font-medium text-blue-600 group-hover:text-blue-700">
+											Read more <span className="ml-1">↗</span>
+										</div>
+									</div>
 								</li>
 							))}
 						</ul>
+
+						<div className="border-t px-4 py-3">
+							<button
+								onClick={() => handleNoticeClick(notices[0])}
+								className="w-full inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm font-medium bg-white hover:bg-gray-50"
+							>
+								View all
+							</button>
+							<div className="mt-2 text-[11px] text-gray-500 flex items-center gap-1">
+								<span>Notices sync from Google Sheet</span>
+								<span>(admin)</span>
+							</div>
+						</div>
 					</div>
 				</aside>
 
