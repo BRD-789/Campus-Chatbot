@@ -7,11 +7,7 @@ export default function App() {
 	const [language, setLanguage] = useState('en');
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [messageInput, setMessageInput] = useState('');
-	const [messages, setMessages] = useState<Message[]>([
-		{ id: 1, role: 'bot', text: 'Hello! How can I help you today?' },
-		{ id: 2, role: 'user', text: 'Show me the latest campus notices.' },
-		{ id: 3, role: 'bot', text: 'Sure! Tap the sidebar to view notices.' }
-	]);
+	const [messages, setMessages] = useState<Message[]>([]);
 
 	const notices = useMemo(() => NOTICES, []);
 
@@ -20,9 +16,9 @@ export default function App() {
 	// Simple label dictionary for UI strings
 	const labels = useMemo(() => {
 		const dict = {
-			en: {
+				en: {
 				title: 'Campus Chatbot',
-				inputPlaceholder: 'Type a message...',
+					inputPlaceholder: "Try: 'library hours' or 'open notices'",
 				send: 'Send',
 				mic: 'Mic',
 				notices: 'Notices',
@@ -31,9 +27,9 @@ export default function App() {
 				language: 'Language',
 				emptyState: 'Say hello to get started!'
 			},
-			hi: {
+				hi: {
 				title: 'कैंपस चैटबॉट',
-				inputPlaceholder: 'संदेश लिखें...',
+					inputPlaceholder: "Try: 'library hours' or 'open notices'",
 				send: 'भेजें',
 				mic: 'माइक',
 				notices: 'सूचनाएँ',
@@ -42,9 +38,9 @@ export default function App() {
 				language: 'भाषा',
 				emptyState: 'शुरू करने के लिए नमस्ते लिखें!'
 			},
-			marwari: {
+				marwari: {
 				title: 'कैंपस चैटबोट',
-				inputPlaceholder: 'संदेस लिखो...',
+					inputPlaceholder: "Try: 'library hours' or 'open notices'",
 				send: 'पठाओ',
 				mic: 'माइक',
 				notices: 'सूचना',
@@ -53,9 +49,9 @@ export default function App() {
 				language: 'भाषा',
 				emptyState: 'शुरुआत खातर राम-राम लिखो!'
 			},
-			mewari: {
+				mewari: {
 				title: 'कैंपस चैटबोट',
-				inputPlaceholder: 'संदेस लिखो...',
+					inputPlaceholder: "Try: 'library hours' or 'open notices'",
 				send: 'पठाओ',
 				mic: 'माइक',
 				notices: 'खबर',
@@ -64,9 +60,9 @@ export default function App() {
 				language: 'भाषा',
 				emptyState: 'शुरू करबा खातर नमस्कार लिखो!'
 			},
-			dhundhari: {
+				dhundhari: {
 				title: 'कैंपस चैटबोट',
-				inputPlaceholder: 'संदेस लिखो...',
+					inputPlaceholder: "Try: 'library hours' or 'open notices'",
 				send: 'पठाओ',
 				mic: 'माइक',
 				notices: 'सूचना',
@@ -75,9 +71,9 @@ export default function App() {
 				language: 'भाषा',
 				emptyState: 'शुरुआत खातिर नमस्ते लिखो!'
 			},
-			harauti: {
+				harauti: {
 				title: 'कैंपस चैटबोट',
-				inputPlaceholder: 'संदेस लिखो...',
+					inputPlaceholder: "Try: 'library hours' or 'open notices'",
 				send: 'पठाओ',
 				mic: 'माइक',
 				notices: 'सूचना',
@@ -86,9 +82,9 @@ export default function App() {
 				language: 'भाषा',
 				emptyState: 'शुरू करबा वास्ते राम-राम लिखो!'
 			},
-			mewati: {
+				mewati: {
 				title: 'कैंपस चैटबोट',
-				inputPlaceholder: 'संदेस लिखो...',
+					inputPlaceholder: "Try: 'library hours' or 'open notices'",
 				send: 'पठाओ',
 				mic: 'माइक',
 				notices: 'सूचना',
