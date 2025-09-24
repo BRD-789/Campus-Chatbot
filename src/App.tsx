@@ -180,19 +180,15 @@ export default function App() {
 
 				<div className="flex items-center gap-2 sm:gap-4">
 					<div className="hidden sm:flex items-center text-sm text-gray-600">{labels.language}:</div>
-					<div className="relative">
-						<span className="pointer-events-none absolute left-2 top-1.5 text-gray-500">🌐</span>
-						<select
+					<select
 						value={language}
 						onChange={(e) => setLanguage(e.target.value)}
-							className="pl-7 pr-8 py-1.5 rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500 appearance-none"
-						>
+						className="rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
+					>
 						{languageOptions.map(opt => (
 							<option key={opt.value} value={opt.value}>{opt.label}</option>
 						))}
-						</select>
-						<span className="pointer-events-none absolute right-2 top-1.5 text-gray-500">▾</span>
-					</div>
+					</select>
 
 					<button
 						onClick={() => setIsSidebarOpen(true)}
@@ -215,8 +211,8 @@ export default function App() {
 					/>
 				)}
 				<aside
-					className={`fixed sm:static z-30 top-0 right-0 h-full sm:h-auto w-80 max-w-[85%] bg-white border-l shadow-xl sm:shadow-none transform transition-transform duration-300
-						${isSidebarOpen ? 'translate-x-0' : 'translate-x-full sm:-translate-x-full sm:w-0'}
+					className={`fixed sm:static z-30 top-0 right-0 h-full sm:h-auto w-80 max-w-[85%] bg-white border-l shadow-xl sm:shadow-none transform transition-[transform,width,opacity] duration-300
+						${isSidebarOpen ? 'translate-x-0 sm:translate-x-0 sm:w-80 sm:opacity-100' : 'translate-x-full sm:translate-x-0 sm:w-0 sm:opacity-0 sm:pointer-events-none'}
 						flex flex-col`}
 					aria-label="Notices Sidebar"
 				>
